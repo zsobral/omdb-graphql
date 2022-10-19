@@ -3,6 +3,7 @@
 
 
 type Movie {
+  imdbId: String!
   title: String!
   year: String!
 }
