@@ -4,6 +4,7 @@
 
 type Movie {
   imdbId: String!
+  posterUrl: String!
   title: String!
   year: String!
 }

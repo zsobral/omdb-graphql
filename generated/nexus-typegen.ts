@@ -33,6 +33,7 @@ export interface NexusGenScalars {
 export interface NexusGenObjects {
   Movie: { // root type
     imdbId: string; // String!
+    posterUrl: string; // String!
     title: string; // String!
     year: string; // String!
   }
@@ -52,6 +53,7 @@ export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 export interface NexusGenFieldTypes {
   Movie: { // field return type
     imdbId: string; // String!
+    posterUrl: string; // String!
     title: string; // String!
     year: string; // String!
   }
@@ -63,6 +65,7 @@ export interface NexusGenFieldTypes {
 export interface NexusGenFieldTypeNames {
   Movie: { // field return type name
     imdbId: 'String'
+    posterUrl: 'String'
     title: 'String'
     year: 'String'
   }
