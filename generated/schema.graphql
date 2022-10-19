@@ -2,6 +2,15 @@
 ### Do not make changes to this file directly
 
 
+type Movie {
+  title: String!
+  year: String!
+}
+
+input MoviesInput {
+  movieTitle: String!
+}
+
 type Query {
-  hello: String!
+  movies(input: MoviesInput!): [Movie!]
 }

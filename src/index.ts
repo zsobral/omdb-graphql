@@ -1,12 +1,10 @@
 import { server } from "./server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-
-const port = process.env.PORT || 8080;
+import { Context } from "./context";
 
 startStandaloneServer(server, {
-  listen: {
-    port: Number(port),
-  },
+  listen: { port: 8080 },
+  context: async ({ req }) => new Context({ req }),
 }).then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
