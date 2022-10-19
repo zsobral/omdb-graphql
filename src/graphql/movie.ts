@@ -14,6 +14,7 @@ export const Movie = objectType({
     t.nonNull.string("imdbId");
     t.nonNull.string("title");
     t.nonNull.string("year");
+    t.nonNull.string("posterUrl");
   },
 });
 
@@ -39,6 +40,7 @@ export const movies = queryField("movies", {
       imdbId: movie.imdbID,
       title: movie.Title,
       year: movie.Year,
+      posterUrl: movie.Poster,
     }));
   },
 });
