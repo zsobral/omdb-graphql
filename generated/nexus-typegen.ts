@@ -4,7 +4,7 @@
  */
 
 
-
+import type { Context } from "./../src/context"
 
 
 
@@ -14,6 +14,9 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  MoviesInput: { // input type
+    movieTitle: string; // String!
+  }
 }
 
 export interface NexusGenEnums {
@@ -28,6 +31,10 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenObjects {
+  Movie: { // root type
+    title: string; // String!
+    year: string; // String!
+  }
   Query: {};
 }
 
@@ -42,18 +49,31 @@ export type NexusGenRootTypes = NexusGenObjects
 export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 
 export interface NexusGenFieldTypes {
+  Movie: { // field return type
+    title: string; // String!
+    year: string; // String!
+  }
   Query: { // field return type
-    hello: string; // String!
+    movies: NexusGenRootTypes['Movie'][] | null; // [Movie!]
   }
 }
 
 export interface NexusGenFieldTypeNames {
+  Movie: { // field return type name
+    title: 'String'
+    year: 'String'
+  }
   Query: { // field return type name
-    hello: 'String'
+    movies: 'Movie'
   }
 }
 
 export interface NexusGenArgTypes {
+  Query: {
+    movies: { // args
+      input: NexusGenInputs['MoviesInput']; // MoviesInput!
+    }
+  }
 }
 
 export interface NexusGenAbstractTypeMembers {
@@ -64,7 +84,7 @@ export interface NexusGenTypeInterfaces {
 
 export type NexusGenObjectNames = keyof NexusGenObjects;
 
-export type NexusGenInputNames = never;
+export type NexusGenInputNames = keyof NexusGenInputs;
 
 export type NexusGenEnumNames = never;
 
@@ -87,7 +107,7 @@ export type NexusGenFeaturesConfig = {
 }
 
 export interface NexusGenTypes {
-  context: any;
+  context: Context;
   inputTypes: NexusGenInputs;
   rootTypes: NexusGenRootTypes;
   inputTypeShapes: NexusGenInputs & NexusGenEnums & NexusGenScalars;
